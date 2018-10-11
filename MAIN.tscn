@@ -2,7 +2,7 @@
 
 [ext_resource path="res://RPG Inventory/Scenes/RPG_InventoryControl.tscn" type="PackedScene" id=1]
 
-[node name="MAIN" type="Node2D"]
+[node name="MAIN" type="Node2D" index="0"]
 
 [node name="RPG_InventoryControl" parent="." index="0" instance=ExtResource( 1 )]
 

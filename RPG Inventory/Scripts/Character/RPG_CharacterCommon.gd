@@ -4,6 +4,10 @@
 
 extends Node
 
+#const
+
+const SAVE_PATH = "res://PlayerStateData.json"
+
 # values
 
 var HP = 53
@@ -75,3 +79,55 @@ func GetMaxValueOfMax():
 	if self.maxArmor > res: res = self.maxArmor
 	if self.maxEnergy > res: res = self.maxEnergy
 	return res
+	
+# ---------------------------------------------------------
+# Save character state data
+# ---------------------------------------------------------
+func Save():
+
+	var data = { 
+	"HP": self.HP,
+	"speed": self.speed,
+	"armor": self.armor,
+	"energy": self.energy,
+	"maxHP": self.maxHP,
+	"maxSpeed": self.maxSpeed,
+	"maxArmor": self.maxArmor,
+	"maxEnergy": self.maxEnergy,
+	}
+	
+	# Open the existing save file or create a new one in write mode
+	var save_file = File.new()
+	save_file.open(SAVE_PATH, File.WRITE)
+
+	# converts to a JSON string. We store it in the save_file
+	save_file.store_line(to_json(data))
+	# The change is automatically saved, so we close the file
+	save_file.close()
+	print("Data saved.")
+
+# ---------------------------------------------------------
+# Load scharacter state  data
+# ---------------------------------------------------------
+func Load():
+
+	# When we load a file, we must check that it exists before we try to open it or it'll crash the game
+	var load_file = File.new()
+	if not load_file.file_exists(SAVE_PATH):
+		print("The load file does not exist. Is created now.")
+		self.Save();
+		return
+
+	load_file.open(SAVE_PATH, File.READ)
+	var data = parse_json(load_file.get_as_text())
+	
+	
+	
+	self.HP = data.HP
+	self.maxHP = data.maxHP
+	self.energy = data.energy
+	self.maxEnergy = data.maxEnergy
+	self.armor = data.armor
+	self.maxArmor = data.maxArmor
+	self.speed = data.speed
+	self.maxSpeed = data.maxSpeed

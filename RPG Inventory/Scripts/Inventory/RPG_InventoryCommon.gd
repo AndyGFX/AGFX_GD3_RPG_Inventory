@@ -117,8 +117,18 @@ func AddItemToInventory(slotID,itemID):
 	self.slotList[slotID].SetItem(self.itemList[itemID]);
 	pass
 
+
 # -------------------------------------------------------------------------------
-# FInd next free slot's index
+# Find item by itemName from Item definition list [itemDictionary]
+# -------------------------------------------------------------------------------
+func GetItemByName(name):
+	var idx = -1
+	for i in range(self.INVENTORY_SLOTS_COUNT):
+		if self.itemDictionary[i].itemName == name : return i
+	return idx
+	
+# -------------------------------------------------------------------------------
+# Find next free slot's index
 # -------------------------------------------------------------------------------
 func GetFreeSlotID():
 	

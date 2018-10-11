@@ -14,14 +14,18 @@ func _ready():
 	RPG_InventoryCommon.AddItemToInventory(2,2)
 	RPG_InventoryCommon.AddItemToInventory(4,3)
 	RPG_InventoryCommon.AddItemToInventory(RPG_InventoryCommon.GetFreeSlotID(),4)
-	RPG_InventoryCommon.AddItemToInventory(10,5)
+	RPG_InventoryCommon.AddItemToInventory(10,RPG_InventoryCommon.GetItemByName("Item_5"))
 	
 	
 	
 	# item icon origin
 	RPG_InventoryCommon.iconOffset = Vector2(8,8)
 
-
+	#RPG_CharacterCommon.Save()
+	
+	#load character states, when file missing then is created new with default values
+	RPG_CharacterCommon.Load()
+	
 	pass
 
 func _input(event):
