@@ -10,3 +10,9 @@ Godot 3 RPG inventory prototype
 * basic character properties
 * visual stats diagram
 * open and extendable item definition stored in dictionary
+* SAVE/LOAD character properties
+* SAVE/LOAD items dictionary
+
+# ToDo
+
+* save/load curent state of inventory and equipment panel
