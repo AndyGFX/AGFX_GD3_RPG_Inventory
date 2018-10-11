@@ -1,4 +1,4 @@
-extends "res://RPG Inventory/Scripts/RPG_Item.gd"
+extends "res://RPG Inventory/Scripts/Item/RPG_Item.gd"
 	
 func OnUse():
 	.OnUse()

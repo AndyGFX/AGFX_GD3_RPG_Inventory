@@ -27,6 +27,7 @@ func _ready():
 func _input(event):
 	
 	
+	
 	if RPG_InventoryCommon.holdingItem != null && RPG_InventoryCommon.holdingItem.picked:		
 		RPG_InventoryCommon.SetHoldingItemPosition(event.position)
 		pass

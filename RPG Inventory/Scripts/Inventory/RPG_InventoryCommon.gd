@@ -5,8 +5,8 @@
 extends Node
 const INVENTORY_SLOTS_COUNT = 24
 const EQUIPMENT_SLOTS_COUNT = 6
-const ItemClass 	= preload("RPG_Item.gd");
-const ItemSlotClass = preload("res://RPG Inventory/Scripts/RPG_ItemSlot.gd");
+const ItemClass 	= preload("res://RPG Inventory/Scripts/Item/RPG_Item.gd");
+const ItemSlotClass = preload("res://RPG Inventory/Scripts/Slot/RPG_ItemSlot.gd");
 const slotTexture 	= preload("res://RPG Inventory/Sprites/Inventory_EmptyItemSlot.png");
 
 
@@ -29,42 +29,42 @@ const itemDictionary = {
 		"itemValue": 456,
 		"itemIcon": itemImages[0],
 		"itemDesc": "item desc 0",
-		"script" : "res://RPG Inventory/Scripts/ItemClasses/Item_0.gd"
+		"script" : "res://RPG Inventory/Scripts/UserItemsClass/Item_0.gd"
 	},
 	1: {
 		"itemName": "Item_1",
 		"itemValue": 100,
 		"itemIcon": itemImages[1],
 		"itemDesc": "item desc 1",
-		"script" : "res://RPG Inventory/Scripts/ItemClasses/Item_1.gd"
+		"script" : "res://RPG Inventory/Scripts/UserItemsClass/Item_1.gd"
 	},
 	2: {
 		"itemName": "Item_2",
 		"itemValue": 23,
 		"itemIcon": itemImages[2],
 		"itemDesc": "item desc 2",
-		"script" : "res://RPG Inventory/Scripts/ItemClasses/Item_2.gd"
+		"script" : "res://RPG Inventory/Scripts/UserItemsClass/Item_2.gd"
 	},
 	3: {
 		"itemName": "Item_3",
 		"itemValue": 56,
 		"itemIcon": itemImages[3],
 		"itemDesc": "item desc 3",
-		"script" : "res://RPG Inventory/Scripts/ItemClasses/Item_3.gd"
+		"script" : "res://RPG Inventory/Scripts/UserItemsClass/Item_3.gd"
 	},
 	4: {
 		"itemName": "Item_4",
 		"itemValue": 2,
 		"itemIcon": itemImages[4],
 		"itemDesc": "item desc 4",
-		"script" : "res://RPG Inventory/Scripts/ItemClasses/Item_4.gd"
+		"script" : "res://RPG Inventory/Scripts/UserItemsClass/Item_4.gd"
 	},
 	5: {
 		"itemName": "Item_5",
 		"itemValue": 78,
 		"itemIcon": itemImages[5],
 		"itemDesc": "item desc 5",
-		"script" : "res://RPG Inventory/Scripts/ItemClasses/Item_5.gd"
+		"script" : "res://RPG Inventory/Scripts/UserItemsClass/Item_5.gd"
 	},
 };
 

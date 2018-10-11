@@ -1,16 +1,19 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://RPG Inventory/Sprites/Panel-Dark.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/pixelmix.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://RPG Inventory/Sprites/Panel-Light.png" type="Texture" id=3]
 [ext_resource path="res://RPG Inventory/Sprites/CharacterStatusPanel.png" type="Texture" id=4]
-[ext_resource path="res://RPG Inventory/Prefabs/InventoryCommands.tscn" type="PackedScene" id=5]
-[ext_resource path="res://RPG Inventory/Sprites/Frame-Dark.png" type="Texture" id=6]
-[ext_resource path="res://RPG Inventory/Sprites/Equipment_CharacterSchemet.png" type="Texture" id=7]
-[ext_resource path="res://RPG Inventory/Scripts/RPG_Inventory.gd" type="Script" id=8]
-[ext_resource path="res://RPG Inventory/Prefabs/InventoryEmptySlot.tscn" type="PackedScene" id=9]
-[ext_resource path="res://RPG Inventory/Prefabs/EquipmentEmptySlot.tscn" type="PackedScene" id=10]
-[ext_resource path="res://RPG Inventory/Sprites/Visual_CharacterState.png" type="Texture" id=11]
+[ext_resource path="res://RPG Inventory/Scripts/Character/RPG_CharacterStatus.gd" type="Script" id=5]
+[ext_resource path="res://RPG Inventory/Prefabs/InventoryCommands.tscn" type="PackedScene" id=6]
+[ext_resource path="res://RPG Inventory/Sprites/Frame-Dark.png" type="Texture" id=7]
+[ext_resource path="res://RPG Inventory/Sprites/Equipment_CharacterSchemet.png" type="Texture" id=8]
+[ext_resource path="res://RPG Inventory/Scripts/Inventory/RPG_Inventory.gd" type="Script" id=9]
+[ext_resource path="res://RPG Inventory/Prefabs/InventoryEmptySlot.tscn" type="PackedScene" id=10]
+[ext_resource path="res://RPG Inventory/Prefabs/EquipmentEmptySlot.tscn" type="PackedScene" id=11]
+[ext_resource path="res://RPG Inventory/Sprites/Visual_CharacterState.png" type="Texture" id=12]
+[ext_resource path="res://RPG Inventory/Scripts/Character/RPG_VisualState.gd" type="Script" id=13]
+[ext_resource path="res://RPG Inventory/Sprites/VisualStateOverlay.png" type="Texture" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -224,6 +227,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 4 )
 stretch_mode = 0
+script = ExtResource( 5 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="StatsLabel" type="Label" parent="CharacterStatusPanel" index="0"]
@@ -258,7 +262,6 @@ __meta__ = {
 
 [node name="StatLabels" type="Control" parent="CharacterStatusPanel" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -382,9 +385,8 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="StatLabels2" type="Control" parent="CharacterStatusPanel" index="2"]
+[node name="StatValue" type="Control" parent="CharacterStatusPanel" index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -400,7 +402,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="HPLabel" type="Label" parent="CharacterStatusPanel/StatLabels2" index="0"]
+[node name="HPValue" type="Label" parent="CharacterStatusPanel/StatValue" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -427,7 +429,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="EnergyLabel" type="Label" parent="CharacterStatusPanel/StatLabels2" index="1"]
+[node name="EnergyValue" type="Label" parent="CharacterStatusPanel/StatValue" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -454,7 +456,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="SpeedLabel" type="Label" parent="CharacterStatusPanel/StatLabels2" index="2"]
+[node name="SpeedValue" type="Label" parent="CharacterStatusPanel/StatValue" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -481,7 +483,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="ArmorLabel" type="Label" parent="CharacterStatusPanel/StatLabels2" index="3"]
+[node name="ArmorValue" type="Label" parent="CharacterStatusPanel/StatValue" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -508,7 +510,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="ItemCommandsPanel" parent="." index="2" instance=ExtResource( 5 )]
+[node name="ItemCommandsPanel" parent="." index="2" instance=ExtResource( 6 )]
 
 visible = false
 margin_left = 181.0
@@ -533,7 +535,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 8
@@ -585,7 +587,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 8
@@ -635,7 +637,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 stretch_mode = 0
 
 [node name="ItemsSlotContainer" type="Control" parent="." index="5"]
@@ -655,52 +657,52 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "custom_constants" ]
 
-[node name="InventoryEmptySlot 0" parent="ItemsSlotContainer" index="0" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 0" parent="ItemsSlotContainer" index="0" instance=ExtResource( 10 )]
 
 margin_right = 24.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 1" parent="ItemsSlotContainer" index="1" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 1" parent="ItemsSlotContainer" index="1" instance=ExtResource( 10 )]
 
 margin_left = 19.0
 margin_right = 43.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 2" parent="ItemsSlotContainer" index="2" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 2" parent="ItemsSlotContainer" index="2" instance=ExtResource( 10 )]
 
 margin_left = 38.0
 margin_right = 62.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 3" parent="ItemsSlotContainer" index="3" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 3" parent="ItemsSlotContainer" index="3" instance=ExtResource( 10 )]
 
 margin_left = 57.0
 margin_right = 81.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 4" parent="ItemsSlotContainer" index="4" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 4" parent="ItemsSlotContainer" index="4" instance=ExtResource( 10 )]
 
 margin_left = 76.0
 margin_right = 100.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 5" parent="ItemsSlotContainer" index="5" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 5" parent="ItemsSlotContainer" index="5" instance=ExtResource( 10 )]
 
 margin_left = 95.0
 margin_right = 119.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 6" parent="ItemsSlotContainer" index="6" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 6" parent="ItemsSlotContainer" index="6" instance=ExtResource( 10 )]
 
 margin_top = 19.0
 margin_right = 24.0
 margin_bottom = 37.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 7" parent="ItemsSlotContainer" index="7" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 7" parent="ItemsSlotContainer" index="7" instance=ExtResource( 10 )]
 
 margin_left = 19.0
 margin_top = 19.0
@@ -708,7 +710,7 @@ margin_right = 43.0
 margin_bottom = 37.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 8" parent="ItemsSlotContainer" index="8" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 8" parent="ItemsSlotContainer" index="8" instance=ExtResource( 10 )]
 
 margin_left = 38.0
 margin_top = 19.0
@@ -716,7 +718,7 @@ margin_right = 62.0
 margin_bottom = 37.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 9" parent="ItemsSlotContainer" index="9" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 9" parent="ItemsSlotContainer" index="9" instance=ExtResource( 10 )]
 
 margin_left = 57.0
 margin_top = 19.0
@@ -724,7 +726,7 @@ margin_right = 81.0
 margin_bottom = 37.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 10" parent="ItemsSlotContainer" index="10" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 10" parent="ItemsSlotContainer" index="10" instance=ExtResource( 10 )]
 
 margin_left = 76.0
 margin_top = 19.0
@@ -732,7 +734,7 @@ margin_right = 100.0
 margin_bottom = 37.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 11" parent="ItemsSlotContainer" index="11" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 11" parent="ItemsSlotContainer" index="11" instance=ExtResource( 10 )]
 
 margin_left = 95.0
 margin_top = 19.0
@@ -740,14 +742,14 @@ margin_right = 119.0
 margin_bottom = 37.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 12" parent="ItemsSlotContainer" index="12" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 12" parent="ItemsSlotContainer" index="12" instance=ExtResource( 10 )]
 
 margin_top = 38.0
 margin_right = 24.0
 margin_bottom = 56.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 13" parent="ItemsSlotContainer" index="13" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 13" parent="ItemsSlotContainer" index="13" instance=ExtResource( 10 )]
 
 margin_left = 19.0
 margin_top = 38.0
@@ -755,7 +757,7 @@ margin_right = 43.0
 margin_bottom = 56.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 14" parent="ItemsSlotContainer" index="14" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 14" parent="ItemsSlotContainer" index="14" instance=ExtResource( 10 )]
 
 margin_left = 38.0
 margin_top = 38.0
@@ -763,7 +765,7 @@ margin_right = 62.0
 margin_bottom = 56.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 15" parent="ItemsSlotContainer" index="15" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 15" parent="ItemsSlotContainer" index="15" instance=ExtResource( 10 )]
 
 margin_left = 57.0
 margin_top = 38.0
@@ -771,7 +773,7 @@ margin_right = 81.0
 margin_bottom = 56.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 16" parent="ItemsSlotContainer" index="16" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 16" parent="ItemsSlotContainer" index="16" instance=ExtResource( 10 )]
 
 margin_left = 76.0
 margin_top = 38.0
@@ -779,7 +781,7 @@ margin_right = 100.0
 margin_bottom = 56.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 17" parent="ItemsSlotContainer" index="17" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 17" parent="ItemsSlotContainer" index="17" instance=ExtResource( 10 )]
 
 margin_left = 95.0
 margin_top = 38.0
@@ -787,14 +789,14 @@ margin_right = 119.0
 margin_bottom = 56.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 18" parent="ItemsSlotContainer" index="18" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 18" parent="ItemsSlotContainer" index="18" instance=ExtResource( 10 )]
 
 margin_top = 57.0
 margin_right = 24.0
 margin_bottom = 75.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 19" parent="ItemsSlotContainer" index="19" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 19" parent="ItemsSlotContainer" index="19" instance=ExtResource( 10 )]
 
 margin_left = 19.0
 margin_top = 57.0
@@ -802,7 +804,7 @@ margin_right = 43.0
 margin_bottom = 75.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 20" parent="ItemsSlotContainer" index="20" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 20" parent="ItemsSlotContainer" index="20" instance=ExtResource( 10 )]
 
 margin_left = 38.0
 margin_top = 57.0
@@ -810,7 +812,7 @@ margin_right = 62.0
 margin_bottom = 75.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 21" parent="ItemsSlotContainer" index="21" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 21" parent="ItemsSlotContainer" index="21" instance=ExtResource( 10 )]
 
 margin_left = 57.0
 margin_top = 57.0
@@ -818,7 +820,7 @@ margin_right = 81.0
 margin_bottom = 75.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 22" parent="ItemsSlotContainer" index="22" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 22" parent="ItemsSlotContainer" index="22" instance=ExtResource( 10 )]
 
 margin_left = 76.0
 margin_top = 57.0
@@ -826,7 +828,7 @@ margin_right = 100.0
 margin_bottom = 75.0
 slotType = "undefined"
 
-[node name="InventoryEmptySlot 23" parent="ItemsSlotContainer" index="23" instance=ExtResource( 9 )]
+[node name="InventoryEmptySlot 23" parent="ItemsSlotContainer" index="23" instance=ExtResource( 10 )]
 
 margin_left = 95.0
 margin_top = 57.0
@@ -834,7 +836,7 @@ margin_right = 119.0
 margin_bottom = 75.0
 slotType = "undefined"
 
-[node name="EquipmentEmptySlot 0" parent="ItemsSlotContainer" index="24" instance=ExtResource( 10 )]
+[node name="EquipmentEmptySlot 0" parent="ItemsSlotContainer" index="24" instance=ExtResource( 11 )]
 
 margin_left = -136.0
 margin_top = 103.0
@@ -842,7 +844,7 @@ margin_right = -112.0
 margin_bottom = 127.0
 slotType = "undefined"
 
-[node name="EquipmentEmptySlot 1" parent="ItemsSlotContainer" index="25" instance=ExtResource( 10 )]
+[node name="EquipmentEmptySlot 1" parent="ItemsSlotContainer" index="25" instance=ExtResource( 11 )]
 
 margin_left = -136.0
 margin_top = 129.0
@@ -850,7 +852,7 @@ margin_right = -112.0
 margin_bottom = 153.0
 slotType = "undefined"
 
-[node name="EquipmentEmptySlot 2" parent="ItemsSlotContainer" index="26" instance=ExtResource( 10 )]
+[node name="EquipmentEmptySlot 2" parent="ItemsSlotContainer" index="26" instance=ExtResource( 11 )]
 
 margin_left = -136.0
 margin_top = 154.0
@@ -858,7 +860,7 @@ margin_right = -112.0
 margin_bottom = 178.0
 slotType = "undefined"
 
-[node name="EquipmentEmptySlot 3" parent="ItemsSlotContainer" index="27" instance=ExtResource( 10 )]
+[node name="EquipmentEmptySlot 3" parent="ItemsSlotContainer" index="27" instance=ExtResource( 11 )]
 
 margin_left = -53.0
 margin_top = 104.0
@@ -866,7 +868,7 @@ margin_right = -29.0
 margin_bottom = 128.0
 slotType = "undefined"
 
-[node name="EquipmentEmptySlot 4" parent="ItemsSlotContainer" index="28" instance=ExtResource( 10 )]
+[node name="EquipmentEmptySlot 4" parent="ItemsSlotContainer" index="28" instance=ExtResource( 11 )]
 
 margin_left = -54.0
 margin_top = 154.0
@@ -874,7 +876,7 @@ margin_right = -30.0
 margin_bottom = 178.0
 slotType = "undefined"
 
-[node name="EquipmentEmptySlot 5" parent="ItemsSlotContainer" index="29" instance=ExtResource( 10 )]
+[node name="EquipmentEmptySlot 5" parent="ItemsSlotContainer" index="29" instance=ExtResource( 11 )]
 
 margin_left = -53.0
 margin_top = 129.0
@@ -899,8 +901,10 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 stretch_mode = 0
+script = ExtResource( 13 )
+colored = true
 
 [node name="VisualStateLabel" type="Label" parent="VisualStatePanel" index="0"]
 
@@ -928,5 +932,24 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="TextureRect" type="TextureRect" parent="VisualStatePanel" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 17.0
+margin_top = 22.0
+margin_right = 82.0
+margin_bottom = 87.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 14 )
+stretch_mode = 0
 
 

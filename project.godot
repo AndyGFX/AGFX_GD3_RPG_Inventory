@@ -17,7 +17,8 @@ config/icon="res://icon.png"
 [autoload]
 
 Utils="*res://Scripts/Utils/Utils.gd"
-RPG_InventoryCommon="*res://RPG Inventory/Scripts/RPG_InventoryCommon.gd"
+RPG_InventoryCommon="*res://RPG Inventory/Scripts/Inventory/RPG_InventoryCommon.gd"
+RPG_CharacterCommon="*res://RPG Inventory/Scripts/Character/RPG_CharacterCommon.gd"
 
 [display]
 
