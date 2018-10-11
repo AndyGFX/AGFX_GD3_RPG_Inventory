@@ -6,7 +6,8 @@ extends Node
 
 #const
 
-const SAVE_PATH = "res://ItemsDictionary.json"
+const SAVE_ITEMS_PATH = "res://ItemsDictionary.json"
+const SAVE_SLOTS_PATH = "res://Slots.json"
 const INVENTORY_SLOTS_COUNT = 24
 const EQUIPMENT_SLOTS_COUNT = 6
 const ItemClass 	= preload("res://RPG Inventory/Scripts/Item/RPG_Item.gd");
@@ -219,7 +220,7 @@ func Save():
 	
 	# Open the existing save file or create a new one in write mode
 	var save_file = File.new()
-	save_file.open(SAVE_PATH, File.WRITE)
+	save_file.open(SAVE_ITEMS_PATH, File.WRITE)
 
 	# converts to a JSON string. We store it in the save_file
 	save_file.store_line(to_json(itemDictionary))
@@ -239,10 +240,10 @@ func SaveSlots():
 	
 	for slot in self.slotList:
 		
-		if slot.item!=null:			
+		if slot.item!=null:
 			var slotIndex = slot.slotIndex
 			var slotType = slot.slotType
-			var itemName = slot.GetItem().get("itemName")
+			var itemName = slot.item.itemName
 			
 			var data = { 
 				"slotIndex" : slotIndex,
@@ -254,7 +255,7 @@ func SaveSlots():
 		
 	# Open the existing save file or create a new one in write mode
 	var save_file = File.new()
-	save_file.open("res://Slots.json", File.WRITE)
+	save_file.open(SAVE_SLOTS_PATH, File.WRITE)
 
 	# converts to a JSON string. We store it in the save_file
 	save_file.store_line(to_json(slots))
@@ -269,11 +270,11 @@ func Load():
 
 	# When we load a file, we must check that it exists before we try to open it or it'll crash the game
 	var load_file = File.new()
-	if not load_file.file_exists(SAVE_PATH):
+	if not load_file.file_exists(SAVE_ITEMS_PATH):
 		print("The load file does not exist. Is created now.")
 		self.Save();
 		return
 
-	load_file.open(SAVE_PATH, File.READ)
+	load_file.open(SAVE_ITEMS_PATH, File.READ)
 	itemDictionary = parse_json(load_file.get_as_text())
 	
