@@ -24,3 +24,13 @@ func OnClose():
 	.OnClose()
 	print("ITEM 5 class called")
 	pass
+	
+func OnEquip():
+	.OnEquip()
+	print("EQUIP ...")
+	pass
+
+func OnUnEquip():
+	.OnUnEquip()
+	print("UN-EQUIP ...")
+	pass

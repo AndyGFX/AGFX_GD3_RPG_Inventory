@@ -34,6 +34,15 @@ func SetItem(newItem):
 	pass;
 	
 func PickItemFromSlot():
+	
+	match self.slotType:
+		"InventorySlot":
+			pass
+		"EquipmentSlot":
+			item.putItem(Vector2(4,4));
+			if item.has_method("OnUnEquip"): item.OnUnEquip()
+			pass
+			
 	item.pickItem();
 	remove_child(item);
 	get_parent().get_parent().add_child(item);
@@ -50,6 +59,7 @@ func PutItemToSlot(newItem):
 			item.putItem(Vector2(1,1));
 		"EquipmentSlot":
 			item.putItem(Vector2(4,4));
+			if item.has_method("OnEquip"): item.OnEquip()
 	
 	self.get_parent().get_parent().remove_child(item);
 	self.add_child(item);

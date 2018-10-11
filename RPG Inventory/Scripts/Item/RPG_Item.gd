@@ -103,3 +103,10 @@ func OnClose():
 	print("PANEL was closed")
 	pass	
 	
+func OnEquip():
+	print("EQUIP ...")
+	pass
+
+func OnUnEquip():
+	print("UN-EQUIP ...")
+	pass
