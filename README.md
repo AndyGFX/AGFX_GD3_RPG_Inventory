@@ -9,4 +9,4 @@ Godot 3 RPG inventory prototype
 * RMB show item command buttons EAT/DROP/DEL/USE
 * basic character properties
 * visual stats diagram
-* open and extendable item definition storec as dictionary
+* open and extendable item definition stored in dictionary
