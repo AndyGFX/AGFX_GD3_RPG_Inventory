@@ -49,6 +49,12 @@ func PickItemFromSlot():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	item = null;
 
+func RemoveItem():
+	remove_child(item);
+	item=null
+	pass
+	
+	
 func PutItemToSlot(newItem):
 	item = newItem;
 	item.itemSlot = self

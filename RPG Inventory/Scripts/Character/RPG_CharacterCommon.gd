@@ -52,6 +52,22 @@ func Add_Armor(val):
 	if self.armor > self.maxArmor: self.armor = self.maxArmor
 	if self.armor < 0:  self.armor = 0
 	
+func Add_MaxArmor(val):
+	self.maxArmor += val
+	pass
+	
+func Add_MaxSpeed(val):
+	self.maxSpeed += val
+	pass
+
+func Add_MaxEnergy(val):
+	self.maxSpeed += val
+	pass
+	
+func Add_MaxHP(val):
+	self.maxHP += val
+	pass
+		
 func GetMaxValueOfMax():
 	var res = - 1000
 	if self.maxSpeed > res: res = self.maxSpeed

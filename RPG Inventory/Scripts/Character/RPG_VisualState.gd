@@ -14,9 +14,7 @@ var colors
 func _ready():
 	pass
 
-
 func _draw():
-	
 	var maxSize = RPG_CharacterCommon.GetMaxValueOfMax()
 	var scale = size/maxSize
 	 
@@ -36,4 +34,9 @@ func _draw():
 		colors = [Color(1,1,1),Color(1,1,1),Color(1,1,1),Color(1,1,1)]
 		
 	var uvs = [Vector2(0,0),Vector2(1,0),Vector2(1,1),Vector2(0,1)]
-	draw_primitive(points, colors, uvs)
+	draw_primitive(points, colors, uvs)	
+
+func _process(delta):
+	pass
+	
+

@@ -27,10 +27,12 @@ func OnClose():
 	
 func OnEquip():
 	.OnEquip()
-	print("EQUIP ...")
+	RPG_CharacterCommon.Add_MaxEnergy(50)
+	RPG_CharacterCommon.Update()
 	pass
 
 func OnUnEquip():
 	.OnUnEquip()
-	print("UN-EQUIP ...")
+	RPG_CharacterCommon.Add_MaxEnergy(-50)
+	RPG_CharacterCommon.Update()
 	pass

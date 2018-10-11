@@ -27,10 +27,13 @@ func OnClose():
 	
 func OnEquip():
 	.OnEquip()
-	print("EQUIP ...")
+	RPG_CharacterCommon.Add_MaxArmor(100)
+	RPG_CharacterCommon.Update()
 	pass
 
 func OnUnEquip():
 	.OnUnEquip()
-	print("UN-EQUIP ...")
+	RPG_CharacterCommon.Add_MaxArmor(-100)
+	RPG_CharacterCommon.Update()
+	
 	pass

@@ -7,7 +7,9 @@ func OnUse():
 	
 func OnEat():
 	.OnEat()
-	print("ITEM 3 class called")
+	RPG_CharacterCommon.Add_HP(100)
+	RPG_CharacterCommon.Update()
+	get_parent().RemoveItem()
 	pass
 	
 func OnDrop():
@@ -27,10 +29,12 @@ func OnClose():
 
 func OnEquip():
 	.OnEquip()
-	print("EQUIP ...")
+	RPG_CharacterCommon.Add_MaxHP(50)
+	RPG_CharacterCommon.Update()
 	pass
 
 func OnUnEquip():
 	.OnUnEquip()
-	print("UN-EQUIP ...")
+	RPG_CharacterCommon.Add_MaxHP(-50)
+	RPG_CharacterCommon.Update()
 	pass

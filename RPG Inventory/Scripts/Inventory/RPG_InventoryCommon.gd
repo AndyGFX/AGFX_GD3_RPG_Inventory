@@ -28,28 +28,28 @@ const itemDictionary = {
 		"itemName": "Item_0",
 		"itemValue": 456,
 		"itemIcon": itemImages[0],
-		"itemDesc": "item desc 0",
+		"itemDesc": "MAX ARMOR +100",
 		"script" : "res://RPG Inventory/Scripts/UserItemsClass/Item_0.gd"
 	},
 	1: {
 		"itemName": "Item_1",
 		"itemValue": 100,
 		"itemIcon": itemImages[1],
-		"itemDesc": "item desc 1",
+		"itemDesc": "MAX SPEED +50",
 		"script" : "res://RPG Inventory/Scripts/UserItemsClass/Item_1.gd"
 	},
 	2: {
 		"itemName": "Item_2",
 		"itemValue": 23,
 		"itemIcon": itemImages[2],
-		"itemDesc": "item desc 2",
+		"itemDesc": "MAX ENERGY +50",
 		"script" : "res://RPG Inventory/Scripts/UserItemsClass/Item_2.gd"
 	},
 	3: {
 		"itemName": "Item_3",
 		"itemValue": 56,
 		"itemIcon": itemImages[3],
-		"itemDesc": "item desc 3",
+		"itemDesc": "MAX HP +30 or HP +100",
 		"script" : "res://RPG Inventory/Scripts/UserItemsClass/Item_3.gd"
 	},
 	4: {
