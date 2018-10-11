@@ -60,7 +60,7 @@ func _gui_input(event):
 		pass
 	
 	# RIGHT MOUSE BUTTON PRESSED
-	if event is InputEventMouseButton and event.button_index == BUTTON_RIGHT and event.pressed:
+	if event is InputEventMouseButton and event.button_index == BUTTON_RIGHT and event.pressed and RPG_InventoryCommon.holdingItem == null:
 		
 		RPG_InventoryCommon.CheckItemUnderMouse()
 		# show button panel only for when mouse is over inventory slot with item
