@@ -26,13 +26,21 @@ func IsFree():
 	if self.item == null : return true
 	return false
 	pass
-	
+
+func GetName():
+	return self.item.itemName;
+
 func SetItem(newItem):
 	add_child(newItem);
 	item = newItem;
 	item.itemSlot = self;
 	pass;
 	
+func GetItem():
+	return self.item;
+	
+	
+		
 func PickItemFromSlot():
 	
 	match self.slotType:

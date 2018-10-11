@@ -225,8 +225,43 @@ func Save():
 	save_file.store_line(to_json(itemDictionary))
 	# The change is automatically saved, so we close the file
 	save_file.close()
+	
+	SaveSlots()
 	print("Data saved.")
 
+
+# ---------------------------------------------------------
+# Save itemDictionary data
+# ---------------------------------------------------------
+func SaveSlots():
+
+	var slots = Array()
+	
+	for slot in self.slotList:
+		
+		if slot.item!=null:			
+			var slotIndex = slot.slotIndex
+			var slotType = slot.slotType
+			var itemName = slot.GetItem().get("itemName")
+			
+			var data = { 
+				"slotIndex" : slotIndex,
+				"slotType" : slotType,
+				"itemName" : itemName,
+				}
+				
+			slots.append(data)
+		
+	# Open the existing save file or create a new one in write mode
+	var save_file = File.new()
+	save_file.open("res://Slots.json", File.WRITE)
+
+	# converts to a JSON string. We store it in the save_file
+	save_file.store_line(to_json(slots))
+	# The change is automatically saved, so we close the file
+	save_file.close()
+	print("Slots saved.")
+	
 # ---------------------------------------------------------
 # Load itemDictionary data
 # ---------------------------------------------------------

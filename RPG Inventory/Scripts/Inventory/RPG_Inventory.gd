@@ -21,13 +21,13 @@ func _ready():
 	# item icon origin
 	RPG_InventoryCommon.iconOffset = Vector2(8,8)
 
-	#RPG_CharacterCommon.Save()
+	RPG_CharacterCommon.Save()
 	
 	#load character states, when file missing then is created new with default values
 	RPG_CharacterCommon.Load()
 	
 	
-	#RPG_InventoryCommon.Save()
+	RPG_InventoryCommon.Save()
 	
 	#load items dictionary, when file missing then is created new with default values
 	RPG_InventoryCommon.Load()
