@@ -3,6 +3,10 @@
 # --------------------------------------------------------------
 
 extends Node
+
+#const
+
+const SAVE_PATH = "res://ItemsDictionary.json"
 const INVENTORY_SLOTS_COUNT = 24
 const EQUIPMENT_SLOTS_COUNT = 6
 const ItemClass 	= preload("res://RPG Inventory/Scripts/Item/RPG_Item.gd");
@@ -206,3 +210,35 @@ func HideCommands():
 	self.disableInventory = false
 	self.commandsPanel.hide()
 	pass	
+	
+# ---------------------------------------------------------
+# Save itemDictionary data
+# ---------------------------------------------------------
+func Save():
+
+	
+	# Open the existing save file or create a new one in write mode
+	var save_file = File.new()
+	save_file.open(SAVE_PATH, File.WRITE)
+
+	# converts to a JSON string. We store it in the save_file
+	save_file.store_line(to_json(itemDictionary))
+	# The change is automatically saved, so we close the file
+	save_file.close()
+	print("Data saved.")
+
+# ---------------------------------------------------------
+# Load itemDictionary data
+# ---------------------------------------------------------
+func Load():
+
+	# When we load a file, we must check that it exists before we try to open it or it'll crash the game
+	var load_file = File.new()
+	if not load_file.file_exists(SAVE_PATH):
+		print("The load file does not exist. Is created now.")
+		self.Save();
+		return
+
+	load_file.open(SAVE_PATH, File.READ)
+	itemDictionary = parse_json(load_file.get_as_text())
+	

@@ -26,6 +26,12 @@ func _ready():
 	#load character states, when file missing then is created new with default values
 	RPG_CharacterCommon.Load()
 	
+	
+	#RPG_InventoryCommon.Save()
+	
+	#load items dictionary, when file missing then is created new with default values
+	RPG_InventoryCommon.Load()
+	
 	pass
 
 func _input(event):

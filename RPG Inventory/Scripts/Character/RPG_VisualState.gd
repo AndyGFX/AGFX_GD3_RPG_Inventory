@@ -37,6 +37,7 @@ func _draw():
 	draw_primitive(points, colors, uvs)	
 
 func _process(delta):
+	update()
 	pass
 	
 
