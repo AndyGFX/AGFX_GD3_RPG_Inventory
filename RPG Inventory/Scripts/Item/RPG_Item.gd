@@ -28,10 +28,10 @@ func Init(itemName, itemTexture, itemSlot, itemValue,itemDesc):
 	mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND;
 
 	# assign item info labels
-	lblItemName   = Utils.find_node("Label_ItemName")
-	lblItemValue  = Utils.find_node("Label_ItemValue")
-	lblItemDesc   = Utils.find_node("Label_ItemDesc")
-	texItemPreview= Utils.find_node("Texture_ItemPreview")
+	lblItemName   = Utils.FindNode("Label_ItemName")
+	lblItemValue  = Utils.FindNode("Label_ItemValue")
+	lblItemDesc   = Utils.FindNode("Label_ItemDesc")
+	texItemPreview= Utils.FindNode("Texture_ItemPreview")
 	
 	connect("mouse_entered",self,"OnMouseEntered")
 	connect("mouse_exited",self,"OnMouseExited")
@@ -44,7 +44,7 @@ func pickItem():
 	pass
 	
 func putItem(local_offset):
-	rect_global_position = Utils.find_node("RPG_InventoryControl").get_global_rect().position + local_offset
+	rect_global_position = Utils.FindNode("RPG_InventoryControl").get_global_rect().position + local_offset
 	mouse_filter = Control.MOUSE_FILTER_PASS;
 	picked = false;
 	pass

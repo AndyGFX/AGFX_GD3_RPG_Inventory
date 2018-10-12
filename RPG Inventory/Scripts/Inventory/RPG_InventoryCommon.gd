@@ -101,17 +101,17 @@ func Prepare():
 	
 	# find all Inventory item slots
 	for i in range(self.INVENTORY_SLOTS_COUNT):
-		var slot = Utils.find_node("InventoryEmptySlot "+str(i));
+		var slot = Utils.FindNode("InventoryEmptySlot "+str(i));
 		slot.slotType = "InventorySlot"
 		self.slotList.append(slot);
 		
 	# find all Equipment item slots
 	for i in range(self.EQUIPMENT_SLOTS_COUNT):
-		var slot = Utils.find_node("EquipmentEmptySlot "+str(i));
+		var slot = Utils.FindNode("EquipmentEmptySlot "+str(i));
 		slot.slotType = "EquipmentSlot"
 		self.slotList.append(slot);
 		
-	self.commandsPanel = Utils.find_node("ItemCommandsPanel");
+	self.commandsPanel = Utils.FindNode("ItemCommandsPanel");
 	pass
 
 
