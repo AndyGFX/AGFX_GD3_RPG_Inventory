@@ -1,10 +1,11 @@
 # main item class
 extends TextureRect
 
-var itemIcon;
-var itemName;
-var itemValue;
-var itemDesc;
+var itemIcon
+var itemName
+var itemValue
+var itemDesc
+var itemCategory
 
 var itemSlot;
 var picked = false;
@@ -17,11 +18,12 @@ var texItemPreview
 func _init():
 	pass
 
-func Init(itemName, itemTexture, itemSlot, itemValue,itemDesc):
+func Init(itemName, itemTexture, itemSlot, itemValue,itemDesc, itemCategory):
 	name = itemName;
-	self.itemName = itemName;
-	self.itemValue = itemValue;
-	self.itemDesc = itemDesc;
+	self.itemName = itemName
+	self.itemValue = itemValue
+	self.itemDesc = itemDesc
+	self.itemCategory = itemCategory
 	texture = itemTexture;	
 	self.itemSlot = itemSlot;
 	mouse_filter = Control.MOUSE_FILTER_PASS;
@@ -44,6 +46,7 @@ func pickItem():
 	pass
 	
 func putItem(local_offset):
+
 	rect_global_position = Utils.FindNode("RPG_InventoryControl").get_global_rect().position + local_offset
 	mouse_filter = Control.MOUSE_FILTER_PASS;
 	picked = false;

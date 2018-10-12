@@ -33,6 +33,7 @@ const itemDictionary = {
 		"itemName": "Item_0",
 		"itemValue": 456,
 		"itemIcon": itemImages[0],
+		"itemCategory" : "Equip1",
 		"itemDesc": "MAX ARMOR +100",
 		"script" : "res://RPG Inventory/Scripts/UserItemsClass/Item_0.gd"
 	},
@@ -40,6 +41,7 @@ const itemDictionary = {
 		"itemName": "Item_1",
 		"itemValue": 100,
 		"itemIcon": itemImages[1],
+		"itemCategory" : "none",
 		"itemDesc": "MAX SPEED +50",
 		"script" : "res://RPG Inventory/Scripts/UserItemsClass/Item_1.gd"
 	},
@@ -47,6 +49,7 @@ const itemDictionary = {
 		"itemName": "Item_2",
 		"itemValue": 23,
 		"itemIcon": itemImages[2],
+		"itemCategory" : "none",
 		"itemDesc": "MAX ENERGY +50",
 		"script" : "res://RPG Inventory/Scripts/UserItemsClass/Item_2.gd"
 	},
@@ -54,6 +57,7 @@ const itemDictionary = {
 		"itemName": "Item_3",
 		"itemValue": 56,
 		"itemIcon": itemImages[3],
+		"itemCategory" : "none",
 		"itemDesc": "MAX HP +30 or HP +100",
 		"script" : "res://RPG Inventory/Scripts/UserItemsClass/Item_3.gd"
 	},
@@ -61,6 +65,7 @@ const itemDictionary = {
 		"itemName": "Item_4",
 		"itemValue": 2,
 		"itemIcon": itemImages[4],
+		"itemCategory" : "none",
 		"itemDesc": "item desc 4",
 		"script" : "res://RPG Inventory/Scripts/UserItemsClass/Item_4.gd"
 	},
@@ -68,6 +73,7 @@ const itemDictionary = {
 		"itemName": "Item_5",
 		"itemValue": 78,
 		"itemIcon": itemImages[5],
+		"itemCategory" : "none",
 		"itemDesc": "item desc 5",
 		"script" : "res://RPG Inventory/Scripts/UserItemsClass/Item_5.gd"
 	},
@@ -96,7 +102,8 @@ func Prepare():
 		var itemValue = self.itemDictionary[item].itemValue;
 		var itemDesc = self.itemDictionary[item].itemDesc;
 		var itemClass = load(self.itemDictionary[item].script).new()
-		itemClass.Init(itemName, itemIcon, null, itemValue, itemDesc)
+		var itemCategory = self.itemDictionary[item].itemCategory
+		itemClass.Init(itemName, itemIcon, null, itemValue, itemDesc,itemCategory)
 		self.itemList.append(itemClass);
 	
 	# find all Inventory item slots
@@ -167,9 +174,23 @@ func CheckItemUnderMouse():
 # PUT item to slot
 # -------------------------------------------------------------------------------
 func PutHoldingItemToSlot():
-	self.clickedSlot.PutItemToSlot(self.holdingItem);
-	self.holdingItem = null;
-	if debug: print("Put holding item to slot")
+
+	var putItemEnabled = true
+
+	print("ITEM cat: "+self.holdingItem.itemCategory)
+	print("SLOT cat: "+self.clickedSlot.category)
+	
+	if self.clickedSlot.checkCategory:
+		if self.holdingItem.itemCategory != self.clickedSlot.category: 
+			putItemEnabled=false
+			return
+
+	if putItemEnabled:
+		self.clickedSlot.PutItemToSlot(self.holdingItem);
+		self.holdingItem = null;
+		if debug: print("Put holding item to slot")
+		pass
+
 	pass
 
 # -------------------------------------------------------------------------------

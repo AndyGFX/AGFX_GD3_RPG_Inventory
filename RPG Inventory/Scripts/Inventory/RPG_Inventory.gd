@@ -37,7 +37,7 @@ func _ready():
 	RPG_InventoryCommon.iconOffset = Vector2(8,8)
 
 	# Save items dictionary
-#	RPG_InventoryCommon.Save()
+	#RPG_InventoryCommon.Save()
 
 
 	# Save character states

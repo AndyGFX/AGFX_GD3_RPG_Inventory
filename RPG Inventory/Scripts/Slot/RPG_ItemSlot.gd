@@ -1,6 +1,9 @@
 extends TextureRect
 
 export var slotType = "undefined"
+export var category = "undefined"
+export var checkCategory = false;
+
 var slotIndex;
 var item = null;
 var texturePath = ""
