@@ -177,8 +177,8 @@ func PutHoldingItemToSlot():
 
 	var putItemEnabled = true
 
-	print("ITEM cat: "+self.holdingItem.itemCategory)
-	print("SLOT cat: "+self.clickedSlot.category)
+	if debug: print("ITEM cat: "+self.holdingItem.itemCategory)
+	if debug: print("SLOT cat: "+self.clickedSlot.category)
 	
 	if self.clickedSlot.checkCategory:
 		if self.holdingItem.itemCategory != self.clickedSlot.category: 
@@ -207,13 +207,25 @@ func PickItemFromSlot():
 # SWAP items between slots
 # -------------------------------------------------------------------------------
 func SwapItemsInSlot():
-	var tempItem = self.clickedSlot.item;
-	var oldSlot = self.slotList[self.slotList.find(self.holdingItem.itemSlot)];
-	self.clickedSlot.PickItemFromSlot();
-	self.clickedSlot.PutItemToSlot(self.holdingItem);
-	self.holdingItem = null;
-	oldSlot.PutItemToSlot(tempItem);	
-	if debug: print("Swap items between slots")
+
+	var putItemEnabled = true
+
+	if debug: print("ITEM cat: "+self.holdingItem.itemCategory)
+	if debug: print("SLOT cat: "+self.clickedSlot.category)
+	
+	if self.clickedSlot.checkCategory:
+		if self.holdingItem.itemCategory != self.clickedSlot.category: 
+			putItemEnabled=false
+			return
+
+	if putItemEnabled:
+		var tempItem = self.clickedSlot.item;
+		var oldSlot = self.slotList[self.slotList.find(self.holdingItem.itemSlot)];
+		self.clickedSlot.PickItemFromSlot();
+		self.clickedSlot.PutItemToSlot(self.holdingItem);
+		self.holdingItem = null;
+		oldSlot.PutItemToSlot(tempItem);	
+		if debug: print("Swap items between slots")
 	pass
 	
 # -------------------------------------------------------------------------------
