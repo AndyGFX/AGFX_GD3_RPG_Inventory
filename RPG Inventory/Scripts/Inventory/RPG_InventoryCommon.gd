@@ -118,10 +118,9 @@ func Prepare():
 # -------------------------------------------------------------------------------
 # Add item[id] to inventory at slot[id]
 # -------------------------------------------------------------------------------
-func AddItemToInventory(slotID,itemID):
-	self.slotList[slotID].SetItem(self.itemList[itemID]);
+func AddItemToInventory(slotID,itemID):	
+	self.slotList[int(slotID)].SetItem(self.itemList[itemID]);
 	pass
-
 
 # -------------------------------------------------------------------------------
 # Find item by itemName from Item definition list [itemDictionary]
@@ -217,22 +216,13 @@ func HideCommands():
 # ---------------------------------------------------------
 func Save():
 
+	Utils.SaveJSON(SAVE_ITEMS_PATH,itemDictionary)
 	
-	# Open the existing save file or create a new one in write mode
-	var save_file = File.new()
-	save_file.open(SAVE_ITEMS_PATH, File.WRITE)
-
-	# converts to a JSON string. We store it in the save_file
-	save_file.store_line(to_json(itemDictionary))
-	# The change is automatically saved, so we close the file
-	save_file.close()
-	
-	SaveSlots()
 	print("Data saved.")
 
 
 # ---------------------------------------------------------
-# Save itemDictionary data
+# Save current slots data
 # ---------------------------------------------------------
 func SaveSlots():
 
@@ -252,17 +242,11 @@ func SaveSlots():
 				}
 				
 			slots.append(data)
-		
-	# Open the existing save file or create a new one in write mode
-	var save_file = File.new()
-	save_file.open(SAVE_SLOTS_PATH, File.WRITE)
 
-	# converts to a JSON string. We store it in the save_file
-	save_file.store_line(to_json(slots))
-	# The change is automatically saved, so we close the file
-	save_file.close()
+	Utils.SaveJSON(SAVE_SLOTS_PATH,slots)
 	print("Slots saved.")
 	
+
 # ---------------------------------------------------------
 # Load itemDictionary data
 # ---------------------------------------------------------
@@ -278,3 +262,20 @@ func Load():
 	load_file.open(SAVE_ITEMS_PATH, File.READ)
 	itemDictionary = parse_json(load_file.get_as_text())
 	
+	
+# ---------------------------------------------------------
+# Load current slots data
+# ---------------------------------------------------------
+func LoadSlots():
+	
+	var data = Utils.LoadJSON(SAVE_SLOTS_PATH)
+	
+	for i in range(data.size()):
+		var slotID = data[i].slotIndex
+		var itemID = self.GetItemByName(data[i].itemName)
+		print("Slot ID: "+str(slotID)+"   item: "+data[i].itemName+"  item id: "+str(itemID))
+		
+		self.AddItemToInventory(slotID,itemID)
+	pass
+
+

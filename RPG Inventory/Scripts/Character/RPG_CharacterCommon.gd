@@ -96,14 +96,8 @@ func Save():
 	"maxEnergy": self.maxEnergy,
 	}
 	
-	# Open the existing save file or create a new one in write mode
-	var save_file = File.new()
-	save_file.open(SAVE_PATH, File.WRITE)
-
-	# converts to a JSON string. We store it in the save_file
-	save_file.store_line(to_json(data))
-	# The change is automatically saved, so we close the file
-	save_file.close()
+	
+	Utils.SaveJSON(SAVE_PATH,data)	
 	print("Data saved.")
 
 # ---------------------------------------------------------
@@ -118,10 +112,7 @@ func Load():
 		self.Save();
 		return
 
-	load_file.open(SAVE_PATH, File.READ)
-	var data = parse_json(load_file.get_as_text())
-	
-	
+	var data = Utils.LoadJSON(SAVE_PATH)
 	
 	self.HP = data.HP
 	self.maxHP = data.maxHP
