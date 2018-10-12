@@ -12,5 +12,8 @@ Godot 3 RPG inventory prototype
 * open and extendable item definition stored in dictionary
 * SAVE/LOAD character properties
 * SAVE/LOAD items dictionary
-* SAVE/LOAD slots 
+* SAVE/LOAD Inventory slots
+* define dependencies via category on item and slot with check
 
+AndyGFX®2018<br>
+http://www.andygfx.com

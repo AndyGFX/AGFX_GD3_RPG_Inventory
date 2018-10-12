@@ -1,7 +1,9 @@
 
 extends TextureRect
 
-
+# ---------------------------------------------------------
+# Find and attach UI labels 
+# ---------------------------------------------------------
 func _ready():
 	
 	RPG_CharacterCommon.ui_hp_field     = Utils.FindNode("HPValue")

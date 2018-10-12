@@ -26,11 +26,7 @@ func _ready():
 	# add items to inventory (for testing purpose only - from file)
 # 	RPG_InventoryCommon.LoadSlots()
 	
-	
 
-#	var slotID = 0
-#	var itemID = 0
-#
 #	RPG_InventoryCommon.AddItemToInventory(slotID,itemID)
 	
 	# item icon origin
