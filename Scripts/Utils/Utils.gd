@@ -18,7 +18,6 @@ func GetSceneRoot():
 	return get_tree().get_root()
 	pass
 	
-	
 func SaveJSON(path,data):
 	
 	# Open the existing save file or create a new one in write mode
