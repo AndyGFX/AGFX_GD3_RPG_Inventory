@@ -1,6 +1,6 @@
 extends TextureRect
 
-export var slotType = "undefined"
+export(String,"undefined","InventorySlot","EquipmentSlot") var slotType = "undefined"
 export var category = "undefined"
 export var checkCategory = false;
 

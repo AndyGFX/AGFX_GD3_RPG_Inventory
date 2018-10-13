@@ -659,7 +659,7 @@ _sections_unfolded = [ "custom_constants" ]
 [node name="InventoryEmptySlot 0" parent="ItemsSlotContainer" index="0" instance=ExtResource( 10 )]
 
 margin_right = 24.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -667,7 +667,7 @@ checkCategory = false
 
 margin_left = 19.0
 margin_right = 43.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -675,7 +675,7 @@ checkCategory = false
 
 margin_left = 38.0
 margin_right = 62.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -683,7 +683,7 @@ checkCategory = false
 
 margin_left = 57.0
 margin_right = 81.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -691,7 +691,7 @@ checkCategory = false
 
 margin_left = 76.0
 margin_right = 100.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -699,7 +699,7 @@ checkCategory = false
 
 margin_left = 95.0
 margin_right = 119.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -708,7 +708,7 @@ checkCategory = false
 margin_top = 19.0
 margin_right = 24.0
 margin_bottom = 37.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -718,7 +718,7 @@ margin_left = 19.0
 margin_top = 19.0
 margin_right = 43.0
 margin_bottom = 37.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -728,7 +728,7 @@ margin_left = 38.0
 margin_top = 19.0
 margin_right = 62.0
 margin_bottom = 37.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -738,7 +738,7 @@ margin_left = 57.0
 margin_top = 19.0
 margin_right = 81.0
 margin_bottom = 37.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -748,7 +748,7 @@ margin_left = 76.0
 margin_top = 19.0
 margin_right = 100.0
 margin_bottom = 37.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -758,7 +758,7 @@ margin_left = 95.0
 margin_top = 19.0
 margin_right = 119.0
 margin_bottom = 37.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -767,7 +767,7 @@ checkCategory = false
 margin_top = 38.0
 margin_right = 24.0
 margin_bottom = 56.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -777,7 +777,7 @@ margin_left = 19.0
 margin_top = 38.0
 margin_right = 43.0
 margin_bottom = 56.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -787,7 +787,7 @@ margin_left = 38.0
 margin_top = 38.0
 margin_right = 62.0
 margin_bottom = 56.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -797,7 +797,7 @@ margin_left = 57.0
 margin_top = 38.0
 margin_right = 81.0
 margin_bottom = 56.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -807,7 +807,7 @@ margin_left = 76.0
 margin_top = 38.0
 margin_right = 100.0
 margin_bottom = 56.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -817,7 +817,7 @@ margin_left = 95.0
 margin_top = 38.0
 margin_right = 119.0
 margin_bottom = 56.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -826,7 +826,7 @@ checkCategory = false
 margin_top = 57.0
 margin_right = 24.0
 margin_bottom = 75.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -836,7 +836,7 @@ margin_left = 19.0
 margin_top = 57.0
 margin_right = 43.0
 margin_bottom = 75.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -846,7 +846,7 @@ margin_left = 38.0
 margin_top = 57.0
 margin_right = 62.0
 margin_bottom = 75.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -856,7 +856,7 @@ margin_left = 57.0
 margin_top = 57.0
 margin_right = 81.0
 margin_bottom = 75.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -866,7 +866,7 @@ margin_left = 76.0
 margin_top = 57.0
 margin_right = 100.0
 margin_bottom = 75.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -876,7 +876,7 @@ margin_left = 95.0
 margin_top = 57.0
 margin_right = 119.0
 margin_bottom = 75.0
-slotType = "undefined"
+slotType = "InventorySlot"
 category = "undefined"
 checkCategory = false
 
@@ -886,7 +886,8 @@ margin_left = -136.0
 margin_top = 103.0
 margin_right = -112.0
 margin_bottom = 127.0
-slotType = "undefined"
+_sections_unfolded = [ "Rect" ]
+slotType = "EquipmentSlot"
 category = "Equip1"
 checkCategory = true
 
@@ -896,7 +897,7 @@ margin_left = -136.0
 margin_top = 129.0
 margin_right = -112.0
 margin_bottom = 153.0
-slotType = "undefined"
+slotType = "EquipmentSlot"
 category = "Equip2"
 checkCategory = true
 
@@ -906,7 +907,7 @@ margin_left = -136.0
 margin_top = 154.0
 margin_right = -112.0
 margin_bottom = 178.0
-slotType = "undefined"
+slotType = "EquipmentSlot"
 category = "Equip3"
 checkCategory = true
 
@@ -916,7 +917,7 @@ margin_left = -53.0
 margin_top = 104.0
 margin_right = -29.0
 margin_bottom = 128.0
-slotType = "undefined"
+slotType = "EquipmentSlot"
 category = "Equip4"
 checkCategory = true
 
@@ -926,7 +927,7 @@ margin_left = -54.0
 margin_top = 154.0
 margin_right = -30.0
 margin_bottom = 178.0
-slotType = "undefined"
+slotType = "EquipmentSlot"
 category = "Equip6"
 checkCategory = true
 
