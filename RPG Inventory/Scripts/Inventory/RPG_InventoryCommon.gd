@@ -28,7 +28,7 @@ const itemImages = [
 ];
 
 # item definitions
-const itemDictionary = {
+var itemDictionary = {
 	0: {
 		"itemName": "Item_0",
 		"itemValue": 456,
