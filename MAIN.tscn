@@ -7,4 +7,3 @@
 [node name="RPG_InventoryControl" parent="." instance=ExtResource( 1 )]
 margin_left = 4.0
 margin_bottom = 217.0
-
